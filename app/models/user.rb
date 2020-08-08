@@ -19,6 +19,11 @@ class User < ApplicationRecord
   validates :name, length: {maximum: 20, minimum: 2}
   validates :introduction, length: {maximum: 50}
 
+  validates :postal_code, presence: true
+  validates :prefecture_code, presence: true
+  validates :city, presence: true
+  validates :street, presence: true
+
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
